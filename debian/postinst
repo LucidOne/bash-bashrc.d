@@ -1,0 +1,35 @@
+#!/bin/sh
+set -e
+
+backup_known_conf() {
+  conf=$1
+  md5conf=$2
+  backup=$3
+  if [ -e "$conf" ]; then
+    if echo "$md5conf  $conf" | md5sum -c - 2>1 > /dev/null; then
+      mv $conf $backup
+    fi
+  fi
+}
+
+if [ "$1" = "configure" ]; then
+  backup_known_conf /etc/skel/.bashrc \
+                    ee35a240758f374832e809ae0ea4883a \
+                    /usr/share/bash-bashrc.d/dot.bashrc-dist
+  backup_known_conf /etc/skel/.bashrc \
+                    1f98b8f3f3c8f8927eca945d59dcc1c6 \
+                    /usr/share/bash-bashrc.d/dot.bashrc-dist
+  if [ -e /usr/share/bash-bashrc.d/dot.bashrc-dist ]; then
+    cat /usr/share/bash-bashrc.d/dot.bashrc-dist \
+        /usr/share/bash-bashrc.d/dot.bashrc.d \
+        > /usr/share/bash-bashrc.d/dot.bashrc
+    ucfr bash-bashrc.d /etc/skel/.bashrc
+    ucf /usr/share/bash-bashrc.d/dot.bashrc \
+        /etc/skel/.bashrc
+  else
+    echo "/etc/skel/.bashrc does not match known distro version" >&2
+    exit 1
+  fi
+fi
+
+#DEBHELPER#

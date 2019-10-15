@@ -1,0 +1,23 @@
+#!/bin/sh
+
+purge_conf() {
+  conf="$1"
+  rm -f "$conf" \
+        "$conf.ucf-dist" \
+        "$conf.ucf-old" \
+        "$conf.ucf-new"
+}
+
+if [ "$1" = "purge" -o "$1" = "remove" ]; then
+  if [ -e /usr/share/bash-bashrc.d/dot.bashrc-dist ]; then
+    purge_conf /etc/skel/.bashrc
+    mv /usr/share/bash-bashrc.d/dot.bashrc-dist /etc/skel/.bashrc
+    ucf --purge /etc/skel/.bashrc
+    ucfr --purge bash-bashrc.d /etc/skel/.bashrc
+  else
+    echo "Can not locate '/usr/share/bash-bashrc.d/dot.bashrc-dist'" >&2
+    echo "Missing distribution version of /etc/skel/.bashrc" >&2
+  fi
+fi
+
+#DEBHELPER#

@@ -1,0 +1,14 @@
+language: minimal
+matrix:
+  include:
+    - dist: xenial
+      script:
+        - bash -c 'echo NO-OP'
+
+deploy:
+  - provider: launchpad
+    slug: "~hxr-io/bash-bashrc.d/+git/xenial"
+    oauth_token:
+      secure: "Oqo5YyQacRK0XZLBQsc7xbVcawxzb+KTJ9VVfwf0fcMRTDG3STaLfQNMG8hJ+u8l3ESXsKf5m55qHUjhj8+wlKS8d/xSwCSiIDzuBYmsxYNzlK/htEx6fX9pk8PepiUU+pKPW/9m6xIfk7nT4AuiROD8DSCL9THcPdJoRmmk1ShPragda+NrghXHCD7WTRkYQRzcs80QCfRxTDBFYaA7OrASddo+2oUyClNVGYYcg6rfWcc1Q9wtVqwoIiK5rP9YmpewuvknMUHWUgfdagM8LcRDxC117TKKNc48bB9sMlDU5b5CxbwfsPJniF0R0CT9eHVNpdUP5hHYUTlIUkguXrYYwUPIP/HC019IM7S16vB/Anft9KPQi0MiHeKkLb1MacUA5Kho2dS9GjZpC3W8onGf3PlFfBNCa1ffOKW2xaNlWORms1jdMCtj0LWON5BTy6iWDaKs7WPcPu6CQIBwmFtXvzmnSK6pZywj1FNjm4vh2UfuM2ji7Jhrwo8YC37oJRg+epUEUqnPEjOIv5D7LOK9BSNOg6PZx16mww3USCCxl+bvkq/yPK31+8RZjGuRAk/q+0pRisPLgd9HribnlwyupHV9gtvub1cftpIG4MV0gdKUTCbz42Hgd8RFSY1Y6pvyEN9t3aDxIRlVAUY5UoYi83KO37LPIbPpueWsr40="
+    oauth_token_secret:
+      secure: "sjiGfVe0FNmGCvB6/YvSfj/P1N9vaWmQxHm0m0avgu7PRtdd8nJYSnKpvIyHh8EKLsvltWBZmCIhUhyyBwOrrUV+29RUGLxXz9ut+61lmlzNanCyaDTBESaqc6pTQCK7CUr4MJbQvh/D388znPQkm2ikylKNdHDrvUO9lG/caT+6h3h9TJANRxUsj8mqNt7FxB2GbJWlZ5UcDJ5w7jIJoJsQagFay6Igo2+O315bZklvf3oUcacJFPepEegmzQw5nXKP9RA2k1TN5h0lh5gdgQuT2ife796VuE0nro81SJYswFvnTV+W7q5Rxaw1ZgzvXAP57i66Sz5/sZk64J3WxlWYWu8/d1ipQj5l5B6fjhTr2bs5EFKe6pdV+7xbtNffK32QfZnXxbQR5H2Qk946EITvOLPpRXsPzantD/5D+zAJ+aGi0REBfQtmSFg/fGw5dAKggY1f2mkR8vC6Wi8OKt1GtWHqGAzox83wIyJA91PPe+2KCtlHxYuNCPVKl65wYGs9iPIpjmSotpXxLb2GdGNzy9CpeIZgKc2LdPze9A7uTSWi/zp5fcyB2+tCR9KUPAYwNpfuN5Ag3lStoHOTMxfC7adg2YMkyhIgypdm2tP3ndEKYsj/edr/0p0pUCCXXiigQiwrS0YY0Q/uP078CgJAslPxWdyACVsVw/s9J4s="
